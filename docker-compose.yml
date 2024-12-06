@@ -10,28 +10,28 @@ services:
     env_file:
       - .env
 
-  rabbitmq:
-    image: rabbitmq:management
-    environment:
-      - RABBITMQ_DEFAULT_USER=guest
-      - RABBITMQ_DEFAULT_PASS=guest
-    ports:
-      - "5672:5672"
-      - "15672:15672"
-
-
-  redis:
-    image: redis:latest
-    ports:
-      - "6379:6379"
-
-  celery:
-    build: .
-    command: celery -A config worker --loglevel=info
-    volumes:
-      - .:/app
-    depends_on:
-      - rabbitmq
-      - redis
-    env_file:
-      - ./.env
+#  rabbitmq:
+#    image: rabbitmq:management
+#    environment:
+#      - RABBITMQ_DEFAULT_USER=guest
+#      - RABBITMQ_DEFAULT_PASS=guest
+#    ports:
+#      - "5672:5672"
+#      - "15672:15672"
+#
+#
+#  redis:
+#    image: redis:latest
+#    ports:
+#      - "6379:6379"
+#
+#  celery:
+#    build: .
+#    command: celery -A config worker --loglevel=info
+#    volumes:
+#      - .:/app
+#    depends_on:
+#      - rabbitmq
+#      - redis
+#    env_file:
+#      - ./.env
