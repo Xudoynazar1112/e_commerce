@@ -8,7 +8,7 @@ from django.core.validators import RegexValidator
 
 
 phone_regex = RegexValidator(
-    regex=r'^\+9989\d{9}$',
+    regex=r'^\+9989\d{8}$',
     message="Phone number must be entered in the format: '+998xxxxxxxxx'. Up to 15 digits allowed."
 )
 
